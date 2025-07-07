@@ -27,7 +27,7 @@ def setup_class(cls):
 
     def test_fill_phone_number(self):
         phone_number = '+1 123 123 12 12'
-        self.page.fill_phone_input(phone_number)  # Assuming the method requires a phone number
+        self.page.fill_phone_input(phone_number)
 
     def test_select_plan(self):
         self.page.click_call_taxi_button()
