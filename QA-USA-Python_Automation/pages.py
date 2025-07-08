@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+
 class UrbanRoutesPage:
     FROM_FIELD = (By.ID, "from")
     TO_FIELD = (By.ID, "to")
@@ -18,7 +19,8 @@ class UrbanRoutesPage:
     CARD_CODE = (By.ID, "code")
 
     def __init__(self, driver):
-            self.driver = driver
+        self.driver = driver
+        routes_page = UrbanRoutesPage(self.driver)
 
     def set_from_address(self, address):
         self.driver.find_element(*self.FROM_FIELD).send_keys(address)
@@ -48,7 +50,7 @@ class UrbanRoutesPage:
 
     def get_message_for_driver(self):
         return self.driver.find_element(*self.COMMENT_FIELD).get_property("value")
-    
+
     def select_blanket_input(self):
         self.driver.find_element(*self.BLANKET_FIELD).click()
 
