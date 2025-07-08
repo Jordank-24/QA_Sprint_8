@@ -47,7 +47,7 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.COMMENT_FIELD).send_keys('Stop at the juice bar, please')
 
     def get_message_for_driver(self):
-    return self.driver.find_element(*self.COMMENT_FIELD).get_property("value")
+        return self.driver.find_element(*self.COMMENT_FIELD).get_property("value")
     
     def select_blanket_input(self):
         self.driver.find_element(*self.BLANKET_FIELD).click()
