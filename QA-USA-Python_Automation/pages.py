@@ -21,10 +21,10 @@ class UrbanRoutesPage:
             self.driver = driver
 
     def set_from_address(self, address):
-        self.driver.find_element(*self.FROM_FIELD).send_keys('East 2nd Street, 601')
+        self.driver.find_element(*self.FROM_FIELD).send_keys(address)
 
     def set_to_address(self, address):
-        self.driver.find_element(*self.TO_FIELD).send_keys('1300 1st St')
+        self.driver.find_element(*self.TO_FIELD).send_keys(address)
 
     def get_from_address(self):
         return self.driver.find_element(*self.FROM_FIELD).get_attribute("value")
@@ -46,12 +46,15 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.COMMENT_FIELD).click()
         self.driver.find_element(*self.COMMENT_FIELD).send_keys('Stop at the juice bar, please')
 
+    def get_message_for_driver(self):
+    return self.driver.find_element(*self.COMMENT_FIELD).get_property("value")
+    
     def select_blanket_input(self):
         self.driver.find_element(*self.BLANKET_FIELD).click()
 
     def select_handkerchief_input(self):
         self.driver.find_element(*self.HANDKERCHIEF_FIELD).click()
-        self.driver.find_element(*self.HANDKERCHIEF_FIELD).get_property('checked')
+        return self.driver.find_element(*self.HANDKERCHIEF_FIELD).get_property("checked")
 
     def fill_icecream_input(self):
         for i in range(2):
